@@ -1,21 +1,80 @@
 <script setup lang="ts">
-  // This starter template is using Vue 3 <script setup> SFCs
-  // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-  import HelloWorld from '@/components/HelloWorld.vue'
+  import Header from '@/components/Header.vue'
+  import Footer from '@/components/Footer.vue'
+  import Socials from '@/components/Socials.vue'
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <div
+    class="flex flex-col w-screen h-screen font-mono  dark:bg-black dark:text-white"
+  >
+    <Header />
+    <main class="flex flex-1 w-screen px-10 md:px-2">
+      <div class="m-auto">
+        <h1 class="text-3xl title" title="Under construction - coming soon...">
+          Under construction - coming soon...
+        </h1>
+      </div>
+    </main>
+    <Footer />
+    <Socials />
+  </div>
 </template>
 
-<style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+<style lang="scss" scoped>
+  .title {
+    animation-delay: 2s;
+    animation: glitch 1s linear infinite;
+    &::before {
+      content: attr(title);
+      position: absolute;
+      left: 0;
+
+      animation: glitchTop 1s linear infinite;
+      clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    }
+  }
+
+  @keyframes glitch {
+    2%,
+    64% {
+      transform: translate(2px, 0) skew(0deg);
+    }
+    4%,
+    60% {
+      transform: translate(-2px, 0) skew(0deg);
+    }
+    62% {
+      transform: translate(0, 0) skew(5deg);
+    }
+  }
+
+  @keyframes glitchTop {
+    2%,
+    64% {
+      transform: translate(2px, -2px);
+    }
+    4%,
+    60% {
+      transform: translate(-2px, 2px);
+    }
+    62% {
+      transform: translate(13px, -1px) skew(-13deg);
+    }
+  }
+
+  @keyframes glitchBotom {
+    2%,
+    64% {
+      transform: translate(-2px, 0);
+    }
+    4%,
+    60% {
+      transform: translate(-2px, 0);
+    }
+    62% {
+      transform: translate(-22px, 5px) skew(21deg);
+    }
   }
 </style>
