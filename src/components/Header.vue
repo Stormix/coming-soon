@@ -5,8 +5,8 @@
   const darkMode = ref(true)
 
   const toggleDarkMode = () => {
-    darkMode.value = !darkMode.value
-    document.documentElement.className = darkMode.value ? 'dark' : ''
+    // darkMode.value = !darkMode.value
+    // document.documentElement.className = darkMode.value ? 'dark' : ''
   }
 </script>
 
